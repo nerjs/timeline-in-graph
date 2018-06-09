@@ -5,7 +5,6 @@ const UglifyJsPlugin = require('uglifyjs-webpack-plugin');
 
 
 
-
 const NODE_ENV = process.env.NODE_ENV || 'development';
 
 
