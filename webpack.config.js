@@ -81,8 +81,8 @@ conf.resolve = {
 	alias : {
 		c : path.join(src,'components'),
 		app : path.join(src,'appfiles'),
-		api : path.join(src,'api'),
-		v : path.join(src,'vendor'),
+		data : path.join(src,'data'),
+		vendor : path.join(src,'vendor'),
 	}
 }
 
