@@ -8,3 +8,5 @@ coverage
 .npmignore
 package-lock.json
 src/glob.js
+root/js
+root/css

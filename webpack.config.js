@@ -10,19 +10,18 @@ const NODE_ENV = process.env.NODE_ENV || 'development';
 
 
 
-const dirRoot = path.join(__dirname,'')
-const src = path.join(__dirname,'src');
+const src = path.join(__dirname);
 
 
 const conf = {
-	context : src,
+	context : path.join(__dirname,'src'),
 	entry : {
-		core : ['fetch-polyfill','./index.js'],
+		main : ['fetch-polyfill','./index.js'],
 		glob : ['fetch-polyfill','./glob.js']
 	},
 	output : {
 		filename : './js/[name].js',
-		path : dirRoot,
+		path : path.join(__dirname, 'root'),
 		publicPath : '/',
 		// library : '_[name]App'
 	},
