@@ -47,5 +47,8 @@
     "style-loader": "^0.20.1",
     "uglifyjs-webpack-plugin": "^1.2.0",
     "webpack": "^3.11.0"
+  },
+  "devDependencies": {
+    "react-json-inspector": "^7.1.1"
   }
 }

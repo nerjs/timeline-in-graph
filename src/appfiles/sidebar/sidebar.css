@@ -1,0 +1,277 @@
+
+@keyframes spin {
+	from {transform: rotate(0deg);}
+	to {transform: rotate(720deg);}
+}
+
+#sidebar {
+	background-color: #FDFBFA;
+	margin-top: 8px;
+	box-shadow: 0 1px 8px #fff, 0 1px 4px #000;
+	border-radius: 4px;
+	padding: 0;
+	padding-bottom: 1px;
+
+	& header {
+		display: flex;
+		flex-direction: row;
+		justify-content: space-evenly;
+		padding: 0;
+		padding-top: 5px;
+		background-color: #34434D;
+		position: relative;
+		font-size: 1.05em;
+		border-radius: 4px 4px 0 0;
+
+		&:after {
+			content: "";
+			position: absolute;
+			left: 1px;
+			right: 1px;
+			bottom: -2px;
+			height: 1px;
+			box-shadow: 0 2px 3px #34434D;
+			background-color: #34434D;
+		}
+
+
+		& .tab {
+			flex-grow: 1px;
+			width: 32%;
+			text-align: center;
+			cursor: pointer;
+			color: #fff;
+			padding-bottom: 3px;
+
+			&.active {
+				background-color: #FDFBFA;
+				border-radius: 10px 10px 0 0;
+				color: rgba(0,0,0,.6);
+				cursor: default;
+			}
+
+			&:last-child {
+				cursor: default;
+			}
+
+			& svg {
+				cursor: pointer;
+				box-shadow: 0 0 3px #fff;
+				border-radius: 50%;
+
+				&.spin {
+					animation: spin .5s ease-in infinite;
+				}
+			}
+		}
+	}
+
+	& .sidebar-content {
+		margin: 10px 0;
+	}
+
+	& .sidebar-loader {
+		padding: 10px;
+		text-align: center;
+
+		& svg {
+			animation: spin 2s linear infinite;
+		}
+	}
+
+	& .sidebar-options {
+		padding: 5px 2px;
+
+		& .new-option {
+			margin-bottom: 5px;
+			box-shadow: 0 0 3px #000;
+			transition: .3s;
+			border-radius: 4px;
+			overflow: hidden;
+
+
+			& .new-option-header {
+				width: 100%;
+				margin: 0;
+				cursor: pointer;
+				text-align: center;
+				background-color: #331111;
+
+				& svg {
+					fill: #BBB4B4;
+					color: #BBB4B4;
+				}
+			}
+			&.open {
+				margin-bottom: 10px;
+				box-shadow: 0 2px 5px #000;
+
+				& .new-option-header {
+					margin-bottom: 3px;
+				}
+			}
+		}
+
+	}
+
+	& .form-option-str {
+		background-color: #33111166;
+		padding-left: 4px;
+		font-size: 0.9em;
+		font-weight: bold;
+		text-shadow: 0 0 2px #fff;
+		cursor: pointer;
+
+		&.string {
+			box-shadow: inset 0 0 3px #1B5E20;
+			color: #1B5E20;
+		}
+
+		&.number {
+			box-shadow: inset 0 0 3px #0D47A1;
+			color: #0D47A1;
+		}
+
+		&.bool {
+			box-shadow: inset 0 0 3px #6A1B9A;
+			color: #6A1B9A;
+		}
+
+		&.warn {
+			box-shadow: inset 0 0 6px red;
+			color: #000;
+		}
+	}
+	
+	& .form-option {
+		padding-top: 3px;
+		padding-bottom: 5px;
+
+		& label,
+		& input {
+			font-size: 0.9em;
+			line-height: 1.1em;
+			width: 100%;
+			background-color: #fff;
+			border: 1px solid rgba(0,0,0,.6);
+			color: #000;
+			padding: 0 3px;
+			margin: 0;
+		}
+
+		& label {
+			display: block;
+			background-color: #0D47A155;
+			color: #0D47A1;
+			padding-left: 25px;
+			position: relative;
+			margin-bottom: 4px;
+			margin-top: 5px;
+			cursor: pointer;
+
+			&:before {
+				content: "";
+				position: absolute;
+				top: 2px;
+				left: 7px;
+				bottom: 2px;
+				width: 10px;
+				border: 2px solid #000;
+				background-color: #fff;
+			}
+		}
+
+		& input {
+
+
+
+			&[type="text"] {
+				color: #1B5E20;
+				background-color: #1B5E2055;
+			}
+
+			&[type="number"] {
+				background-color: #0D47A155;
+				color: #0D47A1;
+			}
+
+			&[type="checkbox"] {
+				display: none;
+
+				&:checked + label {
+					font-weight: bold;
+
+					&:before {
+						background-color: #FFEB3B;
+					}
+				}
+			}
+
+
+		}
+
+		& > div {
+			margin: 2px 0;
+		}
+	}
+
+	& .form-option-type {
+		display: flex;
+		justify-content: space-around;
+
+		& .form-option-type-tab {
+			width: 30%;
+			margin: 3px 0;
+			padding: 2px;
+			background-color: rgba(0,0,0,.3);
+			box-shadow: 0 0 4px #000, inset 0 0 3px #fff;
+			cursor: pointer;
+			text-align: center;
+			font-size: 0.9em;
+			line-height: 1.1em;
+			font-weight: bold;
+
+			&.active {
+				border-radius: 10px;
+
+				&.string { color: #1B5E20; }
+				&.number { color: #0D47A1; }
+				&.bool { color: #6A1B9A; }
+			}	
+		}
+	}
+
+
+	& .form-option-button {
+		line-height: 1em;
+		text-align: center;
+		border-radius: 8px;
+		background-color: rgba(0,0,0,.4);
+		box-shadow: inset 0 0 5px #fff, 0 0 4px #000;
+		cursor: pointer;
+		width: 85%;
+		margin: 4px auto !important;
+		text-align: center;
+
+		& svg {
+			fill: #0f0;
+			color: #0f0;
+			transition: .3s;
+		}
+
+		&.disable {
+			cursor: default;
+			box-shadow: inset 0 0 5px #004D40, 0 0 3px #000;
+
+			& svg {
+				fill: #000;
+				color: #000;
+			}
+		}
+
+		&:active svg {
+			transform: translate(10,0);
+		}
+	}
+
+}

@@ -1,6 +1,7 @@
 const createStore = require('create-redux-store')
 
-const reduser = ()=>({_v:1})
-const mdw = () => n => a => n(a)
+const redusers = require('./redusers')
+const mdw = require('./mdw')
 
-module.exports = createStore(reduser,mdw)
+
+module.exports = createStore(redusers,mdw)

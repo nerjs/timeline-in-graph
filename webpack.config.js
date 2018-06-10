@@ -9,7 +9,7 @@ const NODE_ENV = process.env.NODE_ENV || 'development';
 
 
 
-const src = path.join(__dirname);
+const src = path.join(__dirname,'src');
 
 
 const conf = {
@@ -82,6 +82,7 @@ conf.resolve = {
 		c : path.join(src,'components'),
 		app : path.join(src,'appfiles'),
 		data : path.join(src,'data'),
+		hocs : path.join(src,'hocs'),
 		vendor : path.join(src,'vendor'),
 	}
 }
