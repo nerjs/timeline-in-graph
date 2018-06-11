@@ -35,7 +35,7 @@ class SidebarOptions extends React.Component {
 	}
 
 	dropOption(name) {
-		if (confirm(`Удалить ${name}?`)) return;
+		if (!confirm(`Удалить ${name}?`)) return;
 		this.props.dropOption(name)
 	}
 
@@ -45,6 +45,7 @@ class SidebarOptions extends React.Component {
 	}
 
 	toggleUpdateOption(name) {
+		console.log(name)
 		this.setState({ 
 			updateOptionName: name || null,
 			isNew: false
@@ -57,7 +58,12 @@ class SidebarOptions extends React.Component {
 				<NewOptions active={this.state.isNew} 
 					toggle={this.isNewToggle} 
 					setOption={this.newOption} />
-				<ListOptions/>
+				<ListOptions 
+					options={this.props.options} 
+					current={this.state.updateOptionName} 
+					drop={this.dropOption} 
+					update={this.updateOption} 
+					toggle={this.toggleUpdateOption} />
 			</div>
 		);
 	}

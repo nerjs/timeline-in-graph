@@ -13,7 +13,7 @@ const {
 const RESET_SCHEMA = {}
 
 Object.keys(TYPES_SCHEMA).forEach( key => {
-	RESET_SCHEMA[TYPES_SCHEMA] = key
+	RESET_SCHEMA[TYPES_SCHEMA[key]] = key
 })
 
 const getType = value => {
@@ -24,6 +24,7 @@ const getType = value => {
 	}
 }
 
+const getNameType = value => RESET_SCHEMA[getType(value)]
 
 
 const Input = ({ change, name, type=TYPE_BOOL, value='' }) => {
@@ -152,4 +153,6 @@ class SidebarFormOption extends React.Component {
 
 
 
-module.exports = SidebarFormOption
+exports = module.exports = SidebarFormOption
+
+exports.getNameType = getNameType
