@@ -1,13 +1,23 @@
+:root {
+	--bg-color : #F3ECE1;
+	--bg-color-lite : #FDFBFA;
+	--text-color : #293651;
+	--text-details-color : #E49F2D;
+	--text-h-item : #293640;
+	--text-item : #4E575D
+}
+
 #root {
 	min-height: 100vh;
 	min-width: 100vw;
 	max-width: 100vw;
-	width: 101vw;
+	width: 100vw;
 	overflow: hidden;
 	padding: 0;
 	margin: 0;
 	border: none;
 	font-size: 14px;
+	background-color: var(--bg-color);
 }
 
 .no-gutters {
@@ -15,10 +25,7 @@
 	padding-left: 0 !important;
 }
 
-.sidebar {
-	min-height: 100vh;
-	background-color: #34434D;
-}
+
 
 input::-webkit-outer-spin-button,
 input::-webkit-inner-spin-button {
@@ -30,3 +37,4 @@ input::-webkit-inner-spin-button {
 input[type="number"] {
 	-moz-appearance:textfield;
 }
+

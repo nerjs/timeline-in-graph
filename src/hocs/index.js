@@ -1,1 +1,0 @@
-module.exports = require('./hoc.js')

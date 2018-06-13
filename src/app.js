@@ -1,7 +1,8 @@
 const React = require('react');
 
-const Sidebar = require('app/sidebar')
-const Content = require('app/content')
+const CoreApp = require('./appfiles')
+const options = require('./data/options')
+const list = require('./data/list')
 
 class App extends React.Component {
 	constructor(props) {
@@ -10,15 +11,8 @@ class App extends React.Component {
 
 	render() {
 		return (
-			<div className="container-fluid">
-				<div className="row">
-					<div className="col-12 col-sm-3 col-lg-2 sidebar">
-						<Sidebar/>
-					</div>
-					<div className="col-12 col-sm-9 col-lg-10 content">
-						<Content/>
-					</div>
-				</div>
+			<div className="app-container">
+				<CoreApp {...options} list={list} />
 			</div>
 		);
 	}

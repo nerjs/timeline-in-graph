@@ -13,16 +13,15 @@ const src = path.join(__dirname,'src');
 
 
 const conf = {
-	context : path.join(__dirname,'src'),
+	context : src,
 	entry : {
-		main : ['fetch-polyfill','./index.js'],
-		glob : ['fetch-polyfill','./glob.js']
+		main : './index.js',
+		glob : './glob.js'
 	},
 	output : {
 		filename : './js/[name].js',
 		path : path.join(__dirname, 'root'),
-		publicPath : '/',
-		// library : '_[name]App'
+		publicPath : '/'
 	},
 	module : {}
 }
@@ -62,10 +61,7 @@ conf.module.rules = [{
 	  	loader : 'postcss-loader',
 	  	options : {
 	  		config : {
-	  			path : path.join(__dirname,'postcss.config.js'),
-	  			ctx : {
-	  				cssnextBrowsers : 'last 5 versions'
-	  			}
+	  			path : path.join(__dirname,'postcss.config.js')
 	  		}
 	  	}
 	  }]
@@ -75,26 +71,12 @@ conf.module.rules = [{
 
 
 
-
-// -- ALIASES ---------------------
-conf.resolve = {
-	alias : {
-		c : path.join(src,'components'),
-		app : path.join(src,'appfiles'),
-		data : path.join(src,'data'),
-		hocs : path.join(src,'hocs'),
-		vendor : path.join(src,'vendor'),
-	}
-}
-
 //--  PLUGINS  ----------------------------  
 
 conf.plugins = [
   new webpack.NoEmitOnErrorsPlugin(),
   new webpack.DefinePlugin({
-    NODE_ENV: JSON.stringify(NODE_ENV),
-    'process.env.NODE_ENV': JSON.stringify(NODE_ENV),
-    'NODE_ENV': JSON.stringify(NODE_ENV)
+    'process.env.NODE_ENV': JSON.stringify(NODE_ENV)
   }),
   new webpack.optimize.CommonsChunkPlugin({
     name : 'common'
