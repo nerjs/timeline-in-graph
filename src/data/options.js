@@ -1,6 +1,8 @@
 module.exports = {
 	current: 0,
 	duration: 3000,
+	size: 500,
+	radius: 10,
 	strokeBefore : '#333333',
 	strokeWidthBefore : 4,
 	strokeAfter : '#555555',

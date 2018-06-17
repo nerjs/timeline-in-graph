@@ -8,7 +8,7 @@ class Blocs extends React.Component {
 	render() {
 		return (
 			<div className="Blocs">
-				Blocs
+				{this.props.count} | {this.props.current} | {`${this.props.move}`} 
 			</div>
 		);
 	}

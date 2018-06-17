@@ -31,6 +31,10 @@ class CoreTimeline extends React.Component {
 		}),100)
 	}
 
+	componentDidCatch(err) {
+		console.error(err)
+	}
+
 	render() {
 		const { _is, ...state} = this.state;
 		return (

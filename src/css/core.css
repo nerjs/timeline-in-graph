@@ -112,20 +112,8 @@ input[type="number"] {
 
 .work-dir {
 	width: 100%;
+	display: flex;
+	justify-content: center;
+	padding-top: 5px;
 }
 
-svg {
-	margin: 5px auto;
-	box-shadow: 0 0 5px #000;
-
-	& circle {
-		cursor: pointer;
-		transition: .2s;
-
-		&:hover {
-			fill: green;
-			stroke: black;
-			strokeWidth: 2;
-		}
-	}
-}
