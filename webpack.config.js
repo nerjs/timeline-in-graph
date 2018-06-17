@@ -8,7 +8,6 @@ const UglifyJsPlugin = require('uglifyjs-webpack-plugin');
 const NODE_ENV = process.env.NODE_ENV || 'development';
 
 
-
 const src = path.join(__dirname,'src');
 
 
@@ -84,7 +83,7 @@ conf.plugins = [
   new ETP('./css/[name].css')
 ]
 
-if (NODE_ENV == 'prodaction') {
+if (NODE_ENV == 'production') {
 	conf.plugins.push(
 		new UglifyJsPlugin({
 		  	sourceMap : false,
