@@ -2,10 +2,10 @@ require('normalize.css')
 require('bootstrap/dist/css/bootstrap.min.css')
 require('react')
 require('react-dom')
-require('redux')
-require('react-redux')
-require('konva')
-require('react-konva')
+// require('redux')
+// require('react-redux')
+// require('konva')
+// require('react-konva')
 
 
 // insert babel transform-runtime functions in /common.js

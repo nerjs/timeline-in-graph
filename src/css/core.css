@@ -7,6 +7,7 @@
 	--text-item : #4E575D
 }
 
+
 #root {
 	min-height: 100vh;
 	min-width: 100vw;
@@ -18,6 +19,7 @@
 	border: none;
 	font-size: 14px;
 	background-color: var(--bg-color);
+	/* cursor: wait; */
 }
 
 .no-gutters {
@@ -38,3 +40,69 @@ input[type="number"] {
 	-moz-appearance:textfield;
 }
 
+.app-core {
+	display: flex;
+	position: relative;
+}
+
+.controll {
+	position: absolute;
+	top: 2px;
+	left: 2px;
+	display: flex;
+	flex-direction: column;
+
+	& .info {
+		margin: 3px;
+		padding: 3px;
+		text-align: center;
+		background-color: #fff5;
+
+		& b {
+			margin: 0 5px;
+
+			&:before,
+			&:after {
+				content: "-";
+				margin: 0 1px;
+			}
+		}
+	}
+
+	& .btns {
+		display: flex;
+		flex-direction: row;
+
+
+		& input {
+			max-width: 100%;
+			width: 100px;
+		}
+
+		& div {
+			width: 30px;
+			margin: 2px 4px;
+			padding: 2px 4px;
+			cursor: pointer;
+			box-shadow: 0 0 4px #000;
+			text-align: center;
+			border-radius: 5px;
+		}
+	}
+}
+
+svg {
+	margin: 5px auto;
+	box-shadow: 0 0 5px #000;
+
+	& circle {
+		cursor: pointer;
+		transition: .2s;
+
+		&:hover {
+			fill: green;
+			stroke: black;
+			strokeWidth: 2;
+		}
+	}
+}
