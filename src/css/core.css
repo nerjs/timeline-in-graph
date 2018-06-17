@@ -111,8 +111,6 @@ input[type="number"] {
 }
 
 .work-dir {
-	outline: 1px solid orange;
-	background-color: #000;
 	width: 100%;
 }
 
