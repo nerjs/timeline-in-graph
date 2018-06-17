@@ -1,57 +1,47 @@
 const React = require('react');
 
+const Timeline = require('./timeline')
+const Controlls = require('./controlls')
 const list = require('../data/list')
 const options = require('../data/options')
 
-const TimeLine = require('./comp/timeline')
-
-
-
-class AppCore extends React.Component {
+class CoreTimeline extends React.Component {
 	constructor(props) {
 		super(props)
-		this.state = {
-			count: 4,
-			current:0,
-			is : true
-		}
+
+		this.state = {...options, list : list(5), _is: true}
+
+		this.controll = this.controll.bind(this)
+		this.reload = this.reload.bind(this)
 	}
 
-	toggle() {
-		this.setState({is:false})
-		setTimeout(()=>this.setState({is:true}),100)
+	controll(name, value) {
+		this.setState({
+			[name] : value
+		})
 	}
 
-	getControll() {
-		return (
-			<div className="controll">
-				<div className="info" 
-					onClick={()=>this.toggle()}>
-					<b>{this.state.count}</b>
-					 - 
-					<b>{this.state.current}</b>
-				</div>
-				<div className="btns">
-					<div className="minus" 
-						onClick={()=>this.setState({current:this.state.current == 0 ? 0 : this.state.current-1})}>-</div>
-					<input type="number" defaultValue={this.state.count} 
-						onChange={e=>this.setState({count:(Number(e.target.value) < 0 ? 0 : Number(e.target.value))})}/>
-					<div className="plus" 
-						onClick={()=>this.setState({current:this.state.current == (this.state.count - 1) ? this.state.current : this.state.current+1})}>+</div>
-				</div>
-			</div>
-		)
+	reload() {
+		this.setState({
+			_is : false
+		})
+
+		setTimeout(()=>this.setState({
+			_is : true
+		}),100)
 	}
 
 	render() {
-		const { count, current } = this.state
+		const { _is, ...state} = this.state;
 		return (
 			<div className="app-core">
-				{this.getControll()}
-				{this.state.is && <TimeLine duration={1000} onChangeCurrent={cur=>this.setState({current:cur})} count={this.state.count} current={this.state.current} />}
+				<Controlls {...state} controll={this.controll} reload={this.reload} createList={list}/>
+				<div className="work-dir">
+					{this.state._is && <Timeline {...state} />}
+				</div>
 			</div>
 		);
 	}
 }
 
-module.exports = AppCore
+module.exports = CoreTimeline
