@@ -79,27 +79,6 @@ TimeLine.propTypes = {
 	duration: pt.number,
 	color: pt.string
 	
-	// ~ = React.propTypes || require('prop-types')
-	// key       : ~.[ string | number | array | bool | func | object | symbol | node | any ]
-	// Any_and_isRequired : ~.any.isRequired
-	// reactElement : ~.element
-	// inherit   : ~.instanceOf(Class)
-	// oneOf     : ~.oneOf([ 'first', 'second' ])
-	// oneOfType : ~.oneOfType([ ~.number, ~.string, ... ])
-
-
-	// массив, состоящий из определенных типов
-	// arrayOf   : ~.arrayOf(~.any)
-
-	// Объект со значениями свойств определенного типа
-	// objectOf  : ~.objectOf(~.any)
-
-	// Обьект-схема с четко указаными ключ-тип
-	// shape : ~.shape({
-	// 	  string : ~.string,
-	//    number : ~.number,
-	//    any    : ~.any
-	// })
 }
 
 module.exports = TimeLine

@@ -1,6 +1,6 @@
 const React = require('react');
-const gp = require('../helpers/get_points')
 
+const gp = require('../helpers/get_points')
 const Circles = require('./circles')
 
 let index = 0;

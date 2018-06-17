@@ -46,7 +46,7 @@ class AppCore extends React.Component {
 	render() {
 		const { count, current } = this.state
 		return (
-			<div className="app-core" onKeyDown={e => console.log(e)}>
+			<div className="app-core">
 				{this.getControll()}
 				{this.state.is && <TimeLine duration={1000} onChangeCurrent={cur=>this.setState({current:cur})} count={this.state.count} current={this.state.current} />}
 			</div>
