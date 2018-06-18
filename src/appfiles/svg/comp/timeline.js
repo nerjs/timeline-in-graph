@@ -48,8 +48,11 @@ class TimeLine extends React.Component {
 
 	render() {
 		return (
-			<Canvas width={400} height={400}>
-				<Path colorLeft="#000" sizeLeft={5} colorRight="#555" sizeRight={3}/>
+			<Canvas width={this.props.size} height={this.props.size}>
+				<Path colorLeft={this.props.strokeBefore} 
+					sizeLeft={this.props.strokeWidthBefore} 
+					colorRight={this.props.strokeAfter} 
+					sizeRight={this.props.strokeWidthAfter}/>
 				<TimeLineApp {...this.state} 
 					stopMove={this.stopMove} 
 					setCurrent={this.setCurrent} 
@@ -79,27 +82,6 @@ TimeLine.propTypes = {
 	duration: pt.number,
 	color: pt.string
 	
-	// ~ = React.propTypes || require('prop-types')
-	// key       : ~.[ string | number | array | bool | func | object | symbol | node | any ]
-	// Any_and_isRequired : ~.any.isRequired
-	// reactElement : ~.element
-	// inherit   : ~.instanceOf(Class)
-	// oneOf     : ~.oneOf([ 'first', 'second' ])
-	// oneOfType : ~.oneOfType([ ~.number, ~.string, ... ])
-
-
-	// массив, состоящий из определенных типов
-	// arrayOf   : ~.arrayOf(~.any)
-
-	// Объект со значениями свойств определенного типа
-	// objectOf  : ~.objectOf(~.any)
-
-	// Обьект-схема с четко указаными ключ-тип
-	// shape : ~.shape({
-	// 	  string : ~.string,
-	//    number : ~.number,
-	//    any    : ~.any
-	// })
 }
 
 module.exports = TimeLine

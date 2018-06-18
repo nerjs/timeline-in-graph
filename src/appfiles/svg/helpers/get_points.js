@@ -1,5 +1,4 @@
 const point = require('./point')
-
 const parse = num => parseFloat(num.toFixed(4))
 
 module.exports = (count, current) => {

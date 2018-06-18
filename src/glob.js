@@ -1,5 +1,4 @@
 require('normalize.css')
-require('bootstrap/dist/css/bootstrap.min.css')
 require('react')
 require('react-dom')
 // require('redux')

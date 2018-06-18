@@ -1,5 +1,5 @@
-
 const pt = require('./parse_time').parse
+
 module.exports = ({ lx, ly, cx, cy, nx, ny, d, et }) => {
 	let x = 0,
 		y = 0,

@@ -93,21 +93,6 @@ class Circles extends React.Component {
 	}
 }
 
-// const Circles = ({ x, y, lx, ly, r, id, move, fill, duration, onClick}) => (
-// 	<React.Fragment>
-// 		{move && console.log('move') && ' '}
-// 		<circle
-// 			id={`${id}`} 
-// 			className="circle-static" 
-// 			r={r} 
-// 			cx={x} 
-// 			cy={y} 
-// 			fill={fill} 
-// 			onClick={onClick}
-// 			/>
-// 		{ move && <CircleAnim id={`${id}_anim_${getIndex()}`} {...{ x, y, lx, ly, r, fill, duration }} />}
-// 	</React.Fragment>
-// )
 
 
 module.exports = Circles

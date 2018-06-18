@@ -5,7 +5,7 @@ const path = require('path')
 const log = require('./log')
 
 
-const port = process.env.FS_PORT || 3000
+const port = process.env.FS_PORT || 8888
 
 console.log(path.join(__dirname,'../root'))
 const file = new Static.Server(path.join(__dirname,'../root')) 
