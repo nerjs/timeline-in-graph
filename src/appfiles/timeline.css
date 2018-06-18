@@ -1,3 +1,26 @@
 #timeline {
-	
+	position: relative;
+	z-index: 1;
+
+	& #timeline-svg {
+		z-index: 1;
+	}
+
+
+	& #timeline-blocks {
+		position: absolute;
+		top: 0;
+		right: 0;
+		left: 0;
+		z-index: 2;
+
+		& .moves-block {
+			position: absolute;
+			top: 0;
+			background-color: none;
+			width: 10px;
+			height: 10px;
+			border-radius: 50%;
+		}
+	}
 }

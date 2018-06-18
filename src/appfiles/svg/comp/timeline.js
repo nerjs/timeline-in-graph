@@ -64,7 +64,7 @@ class TimeLine extends React.Component {
 	render() {
 		const { duration, count } = this.props
 		return (
-			<Canvas width={this.props.size} height={this.props.size}>
+			<Canvas id="timeline-svg" width={this.props.size} height={this.props.size}>
 				<Path colorLeft={this.props.strokeBefore} 
 					sizeLeft={this.props.strokeWidthBefore} 
 					colorRight={this.props.strokeAfter} 
