@@ -82,7 +82,7 @@ class Circles extends React.Component {
 		return (
 			<circle
 				id={`${id}`} 
-				className="circle-static" 
+				className={`circle ${this.state.move ? 'circle-move' : 'circle-static'}`} 
 				r={r} 
 				cx={x} 
 				cy={y} 

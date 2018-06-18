@@ -13,7 +13,7 @@ class Timeline extends React.Component {
 
 		const { list, onChange, onAnimate, ...state } = props
 
-		this.state = { ...state, count : list.length, move : false }
+		this.state = { ...state, count : list.length, move : false, last: 0 }
 
 		this.config = {...props}
 
@@ -22,11 +22,14 @@ class Timeline extends React.Component {
 	}
 
 	change(i) {
-		if (i < 0 || (i > this.state.count - 1) || i == this.state.current) return;
+		if (i < 0 || (i > this.state.count - 1) || i == this.state.current || this.state.move) return;
 
 		this.setState({
-			current : i
+			current : i,
+			last : this.state.current
 		})
+
+		this.stepAnimate(true)
 
 		if (this.config.onChange) {
 			this.config.onChange(i)
@@ -48,13 +51,18 @@ class Timeline extends React.Component {
 	}
 
 	render() {
+		const { strokeBefore, strokeAfter, strokeWidthBefore, strokeWidthAfter, fillAfter, fillBefore, fillNow, ...state } = this.state;
 		return (
 			<div id="timeline" style={{
 				width: this.config.size,
 				height: this.config.size
 			}}>
-				<Svg {...this.state}  change={this.change} stepAnimate={this.stepAnimate} />
-				<Blocks {...this.state} list={this.config.list} change={this.change} />
+				<Svg {...this.state} 
+					change={this.change} 
+					stepAnimate={this.stepAnimate} />
+				<Blocks {...state} 
+					list={this.config.list} 
+					change={this.change} />
 			</div>
 		);
 	}
@@ -65,14 +73,16 @@ Timeline.defaultProps = {
 	now               : 0,
 	duration          : 3000,
 	size              : 500,
-	radius            : 10,
 	strokeBefore      : '#333333',
 	strokeWidthBefore : 4,
 	strokeAfter       : '#555555',
 	strokeWidthAfter  : 2,
 	fillBefore        : '#222222',
 	fillAfter         : '#444444',
-	fillNow           : '#000000'
+	fillNow           : '#000000',
+	radiusBefore: 10,
+	radiusAfter: 10,
+	radiusNow: 10
 }
 
 Timeline.propTypes = {
@@ -81,7 +91,6 @@ Timeline.propTypes = {
 	list              : propTypes.array.isRequired,
 	duration          : propTypes.number,
 	size              : propTypes.number,
-	radius            : propTypes.number,
 	strokeBefore      : propTypes.string,
 	strokeWidthBefore : propTypes.number,
 	strokeAfter       : propTypes.string,
@@ -89,6 +98,9 @@ Timeline.propTypes = {
 	fillBefore        : propTypes.string,
 	fillAfter         : propTypes.string,
 	fillNow           : propTypes.string,
+	radiusBefore      : propTypes.number,
+	radiusAfter       : propTypes.number,
+	radiusNow         : propTypes.number,
 	onChange          : propTypes.func,
 	onAnimate         : propTypes.func
 }

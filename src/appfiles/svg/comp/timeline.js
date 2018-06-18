@@ -28,11 +28,15 @@ class TimeLine extends React.Component {
 			isMove : false
 		})
 
-		this.props.onStopMove()
+		this.props.stepAnimate(false)
+	}
+
+	componentDidUpdate() {
+		if (this.props.current != this.state.current) this.setCurrent(this.props.current, true)
 	}
 
 
-	setCurrent(id) {
+	setCurrent(id, not) {
 		if (this.state.isMove || id < 0 || (id > this.state.count - 1) || id == this.state.current) return;
 		this.setState({
 			current : id,
@@ -40,13 +44,25 @@ class TimeLine extends React.Component {
 			isMove: true
 		})
 
-		this.props.onChangeCurrent(id)
+		if (!not) this.props.change(id)
 
 	}
 
-	
+	getCirclesView() {
+		const { now, count, radiusBefore, radiusAfter, radiusNow, fillAfter, fillBefore, fillNow } = this.props
+		const arr = [];
+
+		for (let i = 0; i < count; i++) {
+			if (i > now) arr.push({ fill: fillAfter, r: radiusAfter });
+				else if (i < now) arr.push({ fill: fillBefore, r: radiusBefore });
+				else arr.push({ fill: fillNow, r: radiusNow });
+		}
+
+		return arr;
+	}
 
 	render() {
+		const { duration, count } = this.props
 		return (
 			<Canvas width={this.props.size} height={this.props.size}>
 				<Path colorLeft={this.props.strokeBefore} 
@@ -54,10 +70,12 @@ class TimeLine extends React.Component {
 					colorRight={this.props.strokeAfter} 
 					sizeRight={this.props.strokeWidthAfter}/>
 				<TimeLineApp {...this.state} 
+					duration={duration} 
+					count={count} 
 					stopMove={this.stopMove} 
-					setCurrent={this.setCurrent} 
-					radius={this.props.radius} 
-					color={this.props.color} />
+					setCurrent={this.setCurrent}
+					view={this.getCirclesView()} 
+					/>
 			</Canvas>
 		);
 	}

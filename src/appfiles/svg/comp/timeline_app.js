@@ -27,6 +27,7 @@ class TimelineApp extends React.Component {
 	}
 
 	render() {
+
 		const points = gp(this.props.count, this.props.current)
 		const lastPoints = gp(this.props.count, this.props.last)
 		return (
@@ -40,8 +41,8 @@ class TimelineApp extends React.Component {
 						y={p.y} 
 						lx={lastPoints[i].x} 
 						ly={lastPoints[i].y} 
-						r={this.props.radius} 
-						fill={this.props.color} 
+						r={this.props.view[i].r} 
+						fill={this.props.view[i].fill} 
 						duration={this.props.duration} 
 						stop={this.stopAnimate}
 						onClick={()=>this.props.setCurrent(i)} />
