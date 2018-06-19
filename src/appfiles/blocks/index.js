@@ -36,14 +36,17 @@ const Blocks = ({
 	return (
 		<div id="timeline-blocks" style={{
 			left: size / 10,
-			right: size / 10
+			right: size / 10,
+			top: size / 10
 		}}>
 			<Current item={list[itemId]}
 				now={now} 
 				current={current}
 				last={last}
 				move={move} 
-				duration={duration} />
+				duration={duration} 
+				size={size}  
+				radius={points[itemId].radius}/>
 			{ left.map((p,i)=>(
 					<Moves key={`left_${i}`} {...p} countIn={left.length} type="left" />
 				))}
