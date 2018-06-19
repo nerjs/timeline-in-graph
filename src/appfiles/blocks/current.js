@@ -1,21 +1,18 @@
 const React = require('react');
 
-class CurrentBlock extends React.Component {
-	constructor(props) {
-		super(props)
-	}
+const CurrentBlock = ({
+	container : Container,
+	...props
+}) => (
+	<div className="current-block" style={{
+		top: `-${props.radius}px`,
+		left: (props.size * 0.8) / 2 - props.radius,
+		width: props.radius * 2,
+		height: props.radius * 2,
+	}}>
+		{Container && <Container {...props} />}
+	</div>
+)
 
-	render() {
-		return (
-			<div className="current-block" style={{
-				top: `-${this.props.radius}px`,
-				left: (this.props.size * 0.8) / 2 - this.props.radius,
-				width: this.props.radius * 2,
-				height: this.props.radius * 2,
-			}}>
-			</div>
-		);
-	}
-}
 
 module.exports = CurrentBlock

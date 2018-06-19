@@ -7,6 +7,7 @@ module.exports = count => {
 			field2 : `data field 2 ${i}`,
 			field3 : `data field 3 ${i}`,
 			field4 : `data field 4 ${i}`,
+			field5 : `data field 5 ${i}`,
 		})
 	}
 

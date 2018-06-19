@@ -16,17 +16,21 @@ const Blocks = ({
 	radiusAfter,
 	radiusNow,
 	size,
-	change
+	change,
+	currentContainer,
+	innerContainer
 }) => {
 	const itemId = move ? last : current
 	const points = gp(count, itemId).map( ({ y }, i) => ({
-		offset :  (y / 500) * size,
+		index : i,
+		offset :  (y / 500) * size - (size / 10),
 		radius : i == now ? radiusNow : ( i < now ? radiusBefore : radiusAfter),
 		duration,
 		move,
 		item: list[i],
 		last,
 		currentId : itemId,
+		now,
 		change: () => change(i)
 	}))
 
@@ -46,12 +50,13 @@ const Blocks = ({
 				move={move} 
 				duration={duration} 
 				size={size}  
-				radius={points[itemId].radius}/>
+				radius={points[itemId].radius} 
+				container={currentContainer}/>
 			{ left.map((p,i)=>(
-					<Moves key={`left_${i}`} {...p} countIn={left.length} type="left" />
+					<Moves key={p.index} {...p} countIn={left.length} type="left" container={innerContainer} />
 				))}
 			{ right.map((p,i)=>(
-					<Moves key={`right_${i}`} {...p} countIn={right.length} type="right" />
+					<Moves key={p.index} {...p} countIn={right.length} type="right" container={innerContainer} />
 				))}
 		</div>
 	)

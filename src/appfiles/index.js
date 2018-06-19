@@ -5,6 +5,9 @@ const Controlls = require('./controlls')
 const list = require('../data/list')
 const options = require('../data/options')
 
+const CurrentContainer = require('./inners/current')
+const OtherContainer = require('./inners/other')
+
 class CoreTimeline extends React.Component {
 	constructor(props) {
 		super(props)
@@ -41,7 +44,7 @@ class CoreTimeline extends React.Component {
 			<div className="app-core">
 				<Controlls {...state} controll={this.controll} reload={this.reload} createList={list}/>
 				<div className="work-dir">
-					{this.state._is && <Timeline {...state} />}
+					{this.state._is && <Timeline {...state} currentContainer={CurrentContainer} innerContainer={OtherContainer} />}
 				</div>
 			</div>
 		);

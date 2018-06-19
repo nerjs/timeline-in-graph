@@ -21,6 +21,26 @@
 			width: 10px;
 			height: 10px;
 			border-radius: 50%;
+			z-index: 1;
+
+			& .change-move {
+				position: absolute;
+				top: 0;
+				right: 0;
+				bottom: 0;
+				left: 0;
+				border-radius: 50%;
+				cursor: pointer;
+				z-index: 2;
+			}
+
+			&:hover {
+				z-index: 2;
+
+				& .change-move {
+					cursor: default;
+				}
+			}
 		}
 
 		& .current-block {

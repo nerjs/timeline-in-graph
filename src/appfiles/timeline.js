@@ -62,7 +62,9 @@ class Timeline extends React.Component {
 					stepAnimate={this.stepAnimate} />
 				<Blocks {...state} 
 					list={this.config.list} 
-					change={this.change} />
+					change={this.change} 
+					currentContainer={this.props.currentContainer} 
+					innerContainer={this.props.innerContainer} />
 			</div>
 		);
 	}
@@ -102,7 +104,9 @@ Timeline.propTypes = {
 	radiusAfter       : propTypes.number,
 	radiusNow         : propTypes.number,
 	onChange          : propTypes.func,
-	onAnimate         : propTypes.func
+	onAnimate         : propTypes.func,
+	innerContainer    : propTypes.func,
+	currentContainer  : propTypes.func
 }
 
 module.exports = Timeline

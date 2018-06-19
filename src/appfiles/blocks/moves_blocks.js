@@ -1,32 +1,36 @@
 const React = require('react');
+const cl = require('classnames')
 
-class MovesBlocks extends React.Component {
-	constructor(props) {
-		super(props)
+const MovesBlocks = ({
+	container : Container,
+	...props
+}) => {
+	const style = {
+		width: props.radius * 2,
+		height : props.radius * 2,
+		top: props.offset - props.radius
 	}
 
-	render() {
-		const style = {
-			width: this.props.radius * 2,
-			height : this.props.radius * 2,
-			top: this.props.offset - this.props.radius
-		}
-
-		if (this.props.type == "left") {
-			style.left = 0;
-			style.marginLeft = `-${this.props.radius}px`
-		} else {
-			style.right = 0
-			style.marginRight = `-${this.props.radius}px`
-		}
-
-		return (
-			<div className="moves-block" 
-				style={style} 
-				onClick={this.props.change} > 
-			</div>
-		);
+	if (props.type == "left") {
+		style.left = 0;
+		style.marginLeft = `-${props.radius}px`
+	} else {
+		style.right = 0
+		style.marginRight = `-${props.radius}px`
 	}
+
+	return (
+		<div className={cl('moves-block', {
+			move : props.move
+		})} 
+			style={style} 
+			 > 
+			<div className="change-move" onClick={props.change}/>
+			{ Container && <Container {...props} />}
+		</div>
+	);
 }
+
+
 
 module.exports = MovesBlocks
