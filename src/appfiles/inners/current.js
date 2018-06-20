@@ -13,7 +13,7 @@ const CurrentContainer = ({
 	<div className={cl('current-container', {
 		now,
 		move,
-		small : nearby < 90
+		small : nearby < 100
 	})}>
 		<div className="top">
 			<div className="f2">{field2}</div>
@@ -23,7 +23,7 @@ const CurrentContainer = ({
 		</div>
 		<div className="bottom">
 			<div className="name">{name}</div>
-			<div className="f1">{field1}</div>
+			{nearby > 100 && <div className="f1">{field1}</div>}
 		</div>
 	</div>
 )
