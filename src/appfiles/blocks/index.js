@@ -34,6 +34,7 @@ const Blocks = ({
 		change: () => change(i)
 	}))
 
+
 	const left = points.filter((p,i)=>(i < itemId))
 	const right = points.filter((p,i)=>(i > itemId))
 
@@ -51,7 +52,8 @@ const Blocks = ({
 				duration={duration} 
 				size={size}  
 				radius={points[itemId].radius} 
-				container={currentContainer}/>
+				container={currentContainer} 
+				nearby={Math.min.apply(null,points.filter(p => p.index != itemId).map(p => p.offset))} />
 			{ left.map((p,i)=>(
 					<Moves key={p.index} {...p} countIn={left.length} type="left" container={innerContainer} />
 				))}
