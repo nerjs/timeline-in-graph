@@ -30,7 +30,7 @@
     "postcss-cssnext": "^3.1.0",
     "postcss-discard-duplicates": "^2.1.0",
     "postcss-loader": "^2.1.0",
-    "prop-types": "^15.6.1",
+    "prop-types": "^15.7.2",
     "react": "^16.4.1",
     "react-dom": "^16.4.1",
     "react-icons": "^2.2.7",
